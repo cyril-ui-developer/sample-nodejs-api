@@ -5,15 +5,15 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 
-const employeeController = require('./controllers/employeeController');
+const employeeController = require('./employeeController');
 
 var app = express();
 app.use(bodyparser.urlencoded({
     extended: true
 }));
 app.use(bodyparser.json());
-app.set('views', path.join(__dirname, '/views/'));
-app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/' }));
+app.set('views', path.join(__dirname, '/'));
+app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/layouts/' }));
 app.set('view engine', 'hbs');
 
 app.listen(3000, () => {
